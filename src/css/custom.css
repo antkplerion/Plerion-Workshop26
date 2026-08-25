@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Brand tokens */
+:root {
+  --plerion-orange: #FF5400;
+  --plerion-orange-light: #FF732E;
+  --plerion-violet-black: #0A020F;
+  --plerion-violet-dark: #261432;
+  --plerion-cloud-blue: #F2F7F8;
+  --plerion-lemon: #F8E77D;
+
+  /* Docusaurus overrides */
+  --ifm-color-primary: #FF5400;
+  --ifm-color-primary-dark: #e64b00;
+  --ifm-color-primary-darker: #d94700;
+  --ifm-color-primary-darkest: #b33a00;
+  --ifm-color-primary-light: #ff6a1f;
+  --ifm-color-primary-lighter: #ff722e;
+  --ifm-color-primary-lightest: #ff8f57;
+
+  --ifm-font-family-base: 'Archivo', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', monospace;
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 84, 0, 0.1);
+  --ifm-navbar-height: 64px;
+}
+
+/* Dark mode (default) */
+[data-theme='dark'] {
+  --ifm-color-primary: #FF732E;
+  --ifm-color-primary-dark: #FF5400;
+  --ifm-background-color: #0A020F;
+  --ifm-background-surface-color: #170d1f;
+  --ifm-navbar-background-color: #0A020F;
+  --ifm-footer-background-color: #0A020F;
+  --ifm-toc-border-color: #261432;
+  --ifm-color-emphasis-300: #3d2255;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 115, 46, 0.15);
+}
+
+/* Light mode */
+[data-theme='light'] {
+  --ifm-background-color: #F2F7F8;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-navbar-background-color: #0A020F;
+  --ifm-navbar-link-color: #F2F7F8;
+  --ifm-navbar-link-hover-color: #FF732E;
+}
+
+/* Navbar always dark */
+.navbar {
+  background-color: #0A020F !important;
+  border-bottom: 1px solid #261432;
+}
+
+.navbar__title {
+  color: #F2F7F8 !important;
+  font-weight: 700;
+}
+
+.navbar__link {
+  color: #F2F7F8 !important;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #FF732E !important;
+}
+
+.navbar__logo {
+  height: 32px;
+}
+
+/* Footer */
+.footer {
+  background-color: #0A020F !important;
+  border-top: 1px solid #261432;
+}
+
+/* Sidebar */
+[data-theme='dark'] .menu__link--active {
+  color: #FF732E;
+  background-color: rgba(255, 84, 0, 0.1);
+  border-left: 3px solid #FF5400;
+}
+
+/* Admonitions */
+.alert--info {
+  border-left-color: var(--plerion-cloud-blue);
+}
+
+.alert--success {
+  border-left-color: var(--plerion-orange);
+}
+
+/* Hero section on landing */
+.hero {
+  background: linear-gradient(135deg, #0A020F 0%, #261432 100%);
+  padding: 5rem 0;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #F2F7F8;
+}
+
+.hero__subtitle {
+  color: #F2F7F8;
+  opacity: 0.85;
+  font-size: 1.25rem;
+}
+
+/* Module cards on landing */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.module-card {
+  border: 1px solid #261432;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #170d1f;
+  transition: border-color 0.2s, transform 0.2s;
+  text-decoration: none !important;
+  display: block;
+  color: inherit !important;
+}
+
+.module-card:hover {
+  border-color: #FF5400;
+  transform: translateY(-2px);
+}
+
+.module-card__number {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #FF5400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.module-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F2F7F8;
+  margin-bottom: 0.5rem;
+}
+
+.module-card__time {
+  font-size: 0.8rem;
+  color: #a07abf;
+}
+
+.module-card__desc {
+  font-size: 0.9rem;
+  color: #c5a8e0;
+  margin-top: 0.5rem;
+}
+
+/* Path badges */
+.path-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.path-badge--security {
+  background: rgba(255, 84, 0, 0.15);
+  color: #FF732E;
+  border: 1px solid rgba(255, 84, 0, 0.3);
+}
+
+.path-badge--platform {
+  background: rgba(248, 231, 125, 0.1);
+  color: #F8E77D;
+  border: 1px solid rgba(248, 231, 125, 0.3);
+}
+
+.path-badge--both {
+  background: rgba(242, 247, 248, 0.08);
+  color: #F2F7F8;
+  border: 1px solid rgba(242, 247, 248, 0.2);
+}
+
+/* Lemon highlight for "coming soon" or standout notes */
+.highlight-lemon {
+  background: rgba(248, 231, 125, 0.1);
+  border-left: 3px solid #F8E77D;
+  padding: 0.75rem 1rem;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Code blocks */
+[data-theme='dark'] .prism-code {
+  background: #12071a !important;
+}
