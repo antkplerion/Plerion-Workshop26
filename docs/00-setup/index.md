@@ -86,4 +86,4 @@ The first CSPM scan typically completes within 5–10 minutes. Once the status i
 
 ---
 
-Next: [Module 01 — See](/01-see)
+Next: [Module 01 — Connect Pleri](/01-connect-pleri)

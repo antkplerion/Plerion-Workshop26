@@ -13,43 +13,43 @@ const modules = [
   },
   {
     number: '01',
-    title: 'See',
-    time: '20 min',
-    path: '/01-see',
-    desc: 'Understand your cloud asset inventory and discover what Plerion knows about your environment.',
+    title: 'Connect Pleri',
+    time: '15 min',
+    path: '/01-connect-pleri',
+    desc: 'Hook Pleri AI into Claude, your IDE, and other MCP-compatible tools.',
     paths: ['security', 'platform'],
   },
   {
     number: '02',
+    title: 'See',
+    time: '20 min',
+    path: '/02-see',
+    desc: 'Understand your cloud asset inventory and discover what Plerion knows about your environment.',
+    paths: ['security', 'platform'],
+  },
+  {
+    number: '03',
     title: 'Prioritize',
     time: '25 min',
-    path: '/02-prioritize',
+    path: '/03-prioritize',
     desc: 'Use risk scores, attack paths, and blast radius to focus on what actually matters.',
     paths: ['security'],
   },
   {
-    number: '03',
+    number: '04',
     title: 'Fix',
     time: '25 min',
-    path: '/03-fix',
+    path: '/04-fix',
     desc: 'Remediate findings via the console, Pleri AI, and IaC — with verification steps.',
     paths: ['security', 'platform'],
   },
   {
-    number: '04',
+    number: '05',
     title: 'Prove',
     time: '20 min',
-    path: '/04-prove',
+    path: '/05-prove',
     desc: 'Generate compliance reports, map controls to frameworks, and build audit evidence.',
     paths: ['security'],
-  },
-  {
-    number: '05',
-    title: 'Connect Pleri',
-    time: '15 min',
-    path: '/05-connect-pleri',
-    desc: 'Hook Pleri AI into Claude, your IDE, and other MCP-compatible tools.',
-    paths: ['platform'],
   },
   {
     number: '06',
@@ -130,10 +130,10 @@ export default function Home(): React.JSX.Element {
           </p>
           <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1rem' }}>
             <span className="path-badge path-badge--security">
-              Security Engineer — 00 01 02 03 04 08
+              Security Engineer — 00 01 02 03 04 05 08
             </span>
             <span className="path-badge path-badge--platform">
-              Platform Engineer — 00 01 05 06 07 08
+              Platform Engineer — 00 01 02 06 07 08
             </span>
             <span className="path-badge path-badge--both">Full Workshop — all modules</span>
           </div>

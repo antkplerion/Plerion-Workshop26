@@ -1,9 +1,9 @@
 ---
 title: See
-slug: /01-see
+slug: /02-see
 ---
 
-# Module 01 — See
+# Module 02 — See
 
 **Time:** 20 min | **Paths:** Security Engineer, Platform Engineer
 
@@ -83,4 +83,4 @@ Plerion builds a graph of your cloud. From any resource you can see:
 
 ---
 
-Next: [Module 02 — Prioritize](/02-prioritize)
+Next: [Module 03 — Prioritize](/03-prioritize)

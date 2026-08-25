@@ -1,9 +1,9 @@
 ---
 title: Prioritize
-slug: /02-prioritize
+slug: /03-prioritize
 ---
 
-# Module 02 — Prioritize
+# Module 03 — Prioritize
 
 **Time:** 25 min | **Paths:** Security Engineer
 
@@ -87,4 +87,4 @@ Pleri combines risk score, exploitability, and fix complexity to give you an ord
 
 ---
 
-Next: [Module 03 — Fix](/03-fix)
+Next: [Module 04 — Fix](/04-fix)

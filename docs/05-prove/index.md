@@ -1,9 +1,9 @@
 ---
 title: Prove
-slug: /04-prove
+slug: /05-prove
 ---
 
-# Module 04 — Prove
+# Module 05 — Prove
 
 **Time:** 20 min | **Paths:** Security Engineer
 
@@ -93,4 +93,4 @@ We're preparing for a SOC 2 Type II audit. What are our failing controls and wha
 
 ---
 
-Next: [Module 05 — Connect Pleri](/05-connect-pleri)
+Next: [Module 06 — Work Headless](/06-work-headless)

@@ -1,9 +1,9 @@
 ---
 title: Fix
-slug: /03-fix
+slug: /04-fix
 ---
 
-# Module 03 — Fix
+# Module 04 — Fix
 
 **Time:** 25 min | **Paths:** Security Engineer, Platform Engineer
 
@@ -94,4 +94,4 @@ The status should move to `RESOLVED`.
 
 ---
 
-Next: [Module 04 — Prove](/04-prove)
+Next: [Module 05 — Prove](/05-prove)

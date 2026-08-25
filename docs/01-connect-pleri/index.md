@@ -1,9 +1,9 @@
 ---
 title: Connect Pleri
-slug: /05-connect-pleri
+slug: /01-connect-pleri
 ---
 
-# Module 05 — Connect Pleri
+# Module 01 — Connect Pleri
 
 **Time:** 15 min | **Paths:** Platform Engineer
 
@@ -96,4 +96,4 @@ The same API key works. After restart, Cursor's AI assistant can answer question
 
 ---
 
-Next: [Module 06 — Work Headless](/06-work-headless)
+Next: [Module 02 — See](/02-see)
