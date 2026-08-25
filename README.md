@@ -1,4 +1,6 @@
-<img src="./pleri.png" alt="Plerion" width="80" />
+<p align="center">
+  <img src="./pleri.png" alt="Plerion" width="320" />
+</p>
 
 # Plerion Workshop 2026
 
