@@ -1,4 +1,4 @@
-<img src="https://docs.plerion.com/logo/plerion.svg" alt="Plerion" width="80" />
+<img src="./pleri.png" alt="Plerion" width="80" />
 
 # Plerion Workshop 2026
 
