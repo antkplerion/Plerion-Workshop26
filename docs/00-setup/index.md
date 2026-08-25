@@ -20,22 +20,20 @@ Get your environment ready and connect your first AWS account to Plerion.
 
 ---
 
-## 1. Install tools
+## 1. Install the Plerion CLI
+
+Download the pre-built binary for your platform from the [Plerion CLI releases page](https://github.com/plerionhq/plerion-cli/releases), then configure your credentials:
 
 ```bash
-# Plerion CLI
-brew install plerionhq/tap/plerion
-
-# Verify
-plerion --version
+plerion configure
 ```
 
-```bash
-# Pleri CLI
-brew install plerionhq/tap/pleri
+This creates `~/.plerion/credentials` and `~/.plerion/config`. You'll need an API key from **Settings > API Keys** in the Plerion console.
 
-# Verify
-pleri --version
+Verify the install:
+
+```bash
+plerion tenant get
 ```
 
 ---
@@ -81,7 +79,7 @@ The first CSPM scan typically completes within 5–10 minutes. Once the status i
 
 ## Verify
 
-- [ ] `plerion --version` returns a version string
+- [ ] `plerion tenant get` returns your tenant details
 - [ ] Bad Cloud resources appear in the AWS console
 - [ ] Your account shows `Connected` in Plerion Settings
 - [ ] At least one scan is `COMPLETED`
