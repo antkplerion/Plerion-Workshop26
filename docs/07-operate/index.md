@@ -24,7 +24,7 @@ The goal of this module is to make Plerion part of how your team works day-to-da
 
 In the Plerion console, go to **Settings > Integrations > Slack** and connect your workspace.
 
-(placeholder screenshot7-1)
+![Slack integration](/img/00-setup/screenshot7-operate-1.png)
 
 Configure which events post to which channel. A good starting point:
 
@@ -46,7 +46,7 @@ plerion alerts list --output json
 
 In **Settings > Integrations > Jira**, connect your Jira workspace and set the trigger rules.
 
-(placeholder screenshot7-2)
+![Jira integration](/img/00-setup/screenshot7-operate-2.png)
 
 Configure:
 - **Trigger:** New finding at Critical or High severity
