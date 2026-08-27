@@ -24,7 +24,7 @@ Remediate findings two ways: a script-based fix that Pleri runs directly in your
 
 Open **Findings** in the Plerion console and pick any critical or high finding to work through. Use the filters to narrow by service or resource type.
 
-(placeholder screenshot4-1)
+![Findings list](/img/00-setup/screenshot4-1.png)
 
 From the CLI, list your top failures to choose from:
 
@@ -49,7 +49,7 @@ Pleri will:
 - Produce the exact CLI or API call to fix the configuration
 - Tell you what to verify afterwards
 
-(placeholder screenshot4-2)
+![Pleri script-based fix](/img/00-setup/screenshot4-2.png)
 
 This is the fastest path for cloud-native misconfigurations — no code review required, the change goes straight to the resource.
 
@@ -66,11 +66,13 @@ Pleri will:
 - Write the corrected code
 - Open a PR in your connected GitHub (or GitLab) repo with a description of the finding and the change
 
-(placeholder screenshot4-3)
+![Auto-fix PR](/img/00-setup/screenshot4-3.png)
 
 Your team reviews and approves the PR as normal. Once merged, the next Plerion scan will pick up the change and close the finding.
 
 This approach keeps your cloud infrastructure in sync with your code — no drift, full audit trail.
+
+> **Tip:** Some of our most successful customers skip the Pleri auto-fix PR entirely and instead feed findings directly into Claude Code or their AI coding tool to generate and raise the fix themselves. This gives them more control over the change and fits naturally into their existing engineering workflow. Check out the Advanced section for more on this approach — coming soon.
 
 ---
 
