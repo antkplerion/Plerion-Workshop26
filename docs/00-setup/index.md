@@ -61,10 +61,14 @@ plerion tenant get
 Log in to your Plerion tenant and navigate to **Settings > Accounts > Add Account**.
 
 Follow the onboarding steps through the UI:
+
+AWS Account for single account onboarding. Workload service account for cross-account scanning from 1 source account - this is the scalable and recommended approach for 3+ aws accounts:
 ![Add Account step 1](/img/00-setup/screenshot3.png)
 
+CSPM, CIEM and CWPP are selected by default, which gives you the full capability of Plerion. By default, Plerion-managed service account is selected, to minimise appliance infrastructure deployment in your aws account. However, if you have strict requirements for storing and transferring of snapshot for vulnerability scanning, please select Service Account / Use the same account:
 ![Add Account step 2](/img/00-setup/screenshot4.png)
 
+Ensure you are logged into the right aws environment/account with permissions to deploy the cloudformation template:
 ![Add Account step 3](/img/00-setup/screenshot5.png)
 
 Plerion deploys a cross-account read-only role for agentless scanning and registers the account with the Plerion Service Account. 
