@@ -5,22 +5,38 @@ slug: /00-setup
 
 # Module 00 — Setup
 
-**Time:** 15 min | **Paths:** Security Engineer, Platform Engineer
+**Time:** 15-30 min | **Paths:** Security Engineer, Platform Engineer
 
-Get your environment ready and connect your first AWS account to Plerion.
+(Solo) Review workshop and follow along with your own Plerion Tenant.
+(Guided with Plerion) Using the Plerion Demo account, be guided in all set up.
 
 ---
 
 ## What you'll do
 
-1. Install the Plerion CLI and Pleri CLI
-2. Deploy the Bad Cloud Terraform environment
-3. Onboard your AWS account to Plerion
-4. Confirm the first scan has run
+1. Sign up and invite teammates
+2. Install the Plerion CLI 
+3. Onboard your Cloud Environment(s) to Plerion's Agentless Scanning
+4. Onboard your Code Repo to Plerion Code Security
+5. Confirm the first scan has run
 
 ---
 
-## 1. Install the Plerion CLI
+## 1. Sign Up and Invite teammates
+
+Go to the Plerion Website's sign-up page and enter your Work Email [Sign up page](https://www.plerion.com/sign-up)
+
+(placeholder screenshot1)
+
+This will trigger a confirmation email and you will then set up your username, password and MFA. 
+
+Next, click on "Go to Integrations" and in the top right click on "Admin". Here you'll be able to add users as `Org-Admin`/`Tenant-Admin` or `Org-ReadOnly`/`Tenant-ReadOnly`. 
+
+For general users with full access to Plerion, we recommend `Org-Admin`.
+
+---
+
+## 2. Install the Plerion CLI
 
 Download the pre-built binary for your platform from the [Plerion CLI releases page](https://github.com/plerionhq/plerion-cli/releases), then configure your credentials:
 
@@ -30,6 +46,8 @@ plerion configure
 
 This creates `~/.plerion/credentials` and `~/.plerion/config`. You'll need an API key from **Settings > API Keys** in the Plerion console.
 
+(placeholder screenshot2)
+
 Verify the install:
 
 ```bash
@@ -38,50 +56,37 @@ plerion tenant get
 
 ---
 
-## 2. Deploy Bad Cloud
-
-Clone the Bad Cloud repository and apply the Terraform:
-
-```bash
-git clone https://github.com/plerionhq/bad-cloud.git
-cd bad-cloud
-terraform init
-terraform apply -auto-approve
-```
-
-This creates a set of intentionally misconfigured resources across EC2, S3, RDS, IAM, and networking.
-
----
-
-## 3. Connect your AWS account
+## 3. Onboard your Cloud Environment (AWS)
 
 Log in to your Plerion tenant and navigate to **Settings > Accounts > Add Account**.
 
-Follow the CloudFormation onboarding wizard, or use the CLI:
+Follow the onboarding steps through the UI:
+(placeholder screenshot3)
 
-```bash
-plerion accounts add --provider aws --account-id <YOUR_ACCOUNT_ID>
-```
+(placeholder screenshot4)
 
-Plerion deploys a cross-account read role and registers the account for scanning.
+(placeholder screenshot5)
+
+Plerion deploys a cross-account read-only role for agentless scanning and registers the account with the Plerion Service Account. 
 
 ---
 
-## 4. Confirm first scan
+## 4. Confirm first findings
+
+Running this script in your terminal should give you 3 failed findings. 
 
 ```bash
-plerion scans list --account-id <YOUR_ACCOUNT_ID>
+plerion findings list --severity CRITICAL,HIGH --status FAILED --output json --query "sort_by([].{id: id, title: message, severity: severityLevel}, &severity)[:3]"  
 ```
 
-The first CSPM scan typically completes within 5–10 minutes. Once the status is `COMPLETED`, move to Module 01.
+NOTE: The first CSPM scan typically completes within 5–10 minutes. Once you've run the script successfully, move to Module 01.
 
 ---
 
 ## Verify
 
-- [ ] `plerion tenant get` returns your tenant details
-- [ ] Bad Cloud resources appear in the AWS console
-- [ ] Your account shows `Connected` in Plerion Settings
+- [ ] `plerion findings list` returns your tenant cspm findings
+- [ ] AWS integration appears in the Plerion Console
 - [ ] At least one scan is `COMPLETED`
 
 ---
