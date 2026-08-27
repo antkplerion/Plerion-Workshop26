@@ -162,10 +162,6 @@ export default function Home(): React.JSX.Element {
           ))}
         </div>
 
-        <div className="highlight-lemon" style={{ marginTop: '3rem' }}>
-          <strong>Bad Cloud environment</strong> — each module uses a deliberately misconfigured
-          Terraform environment so you can see real findings. Setup instructions are in Module 00.
-        </div>
       </div>
     </Layout>
   );
