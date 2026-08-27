@@ -7,108 +7,117 @@ slug: /07-teach-pleri
 
 **Time:** 20 min | **Paths:** Platform Engineer
 
-Add custom findings, policies, and organisational context so Pleri gives answers that are specific to your environment — not generic cloud security advice.
+Pleri gets more useful the more it knows about your organisation. This module covers the three extensibility primitives: Skills, Memory, and Tasks.
 
 ---
 
 ## What you'll do
 
-1. Write a custom finding policy
-2. Add organisational context (teams, services, owners)
-3. Test that Pleri uses the context in its answers
-4. Create a custom compliance control
+1. Install a Skill to connect Pleri to an external tool
+2. Set company memory so Pleri understands your environment
+3. Create a Task to schedule a recurring Pleri query
 
 ---
 
-## 1. Write a custom finding policy
+## 1. Skills
 
-Custom policies are written in Rego (OPA) or using Plerion's policy DSL.
+Skills connect Pleri to external data sources and tools — Jira, Vanta, Drata, Linear, custom MCP servers, and more. Once installed, Pleri can read from and act on those systems in the same conversation as your cloud security data.
 
-```yaml
-# policies/require-backup-tag.yaml
-name: EC2 instances must have a Backup tag
-severity: medium
-resource: aws_ec2_instance
-condition:
-  not:
-    tag_exists: Backup
-remediation: |
-  Add the tag `Backup=true` or `Backup=false` to every EC2 instance.
-  Resources with `Backup=false` should have a documented exception.
+In the Pleri console, go to **Skills**. You'll see:
+
+- **Installed** — skills already active in your workspace
+- **Templates** — pre-built skills you can install in one click
+
+(placeholder screenshot7-1)
+
+### Install a template skill
+
+Browse the template library and click **Install** on a skill your team uses (e.g. Jira, Linear, or Vanta).
+
+Follow the OAuth or API key prompt. Once connected, Pleri can answer questions like:
+
+```
+Create a Jira ticket for each of my open critical findings and assign it to the security team.
 ```
 
-```bash
-plerion policies create --file policies/require-backup-tag.yaml
-plerion policies run --name "EC2 instances must have a Backup tag"
-```
+### Add a custom MCP server
+
+If your tooling isn't in the template library, add it as a custom MCP server:
+
+1. In **Skills**, click **Add Skill**
+2. Choose **MCP Server**
+3. Paste your server URL and any required credentials
+4. Click **Validate** — Pleri will test the connection before saving
+
+(placeholder screenshot7-2)
 
 ---
 
-## 2. Add organisational context
+## 2. Memory
 
-Tell Pleri who owns what:
+Memory is how you teach Pleri about your organisation. Without it, Pleri gives generic cloud security answers. With it, Pleri knows who owns what, what your environments mean, and what your risk priorities are.
 
-```bash
-plerion context add \
-  --resource-tag "Team=payments" \
-  --owner "payments-team@company.com" \
-  --slack-channel "#payments-security"
+There are two levels:
+
+| Level | Scope | What to put here |
+|-------|-------|-----------------|
+| **User memory** | Your account only | Your role, preferred output format, recurring questions |
+| **Company memory** | All users in your tenant | Team ownership, environment definitions, risk tolerance, contacts |
+
+### Set company memory
+
+In the Pleri console, go to **Settings > Company Memory**.
+
+Write plain English — Pleri reads this as context before every response:
+
+```
+Production is defined as any account tagged Environment=production.
+The payments team owns all resources tagged Team=payments. Their on-call contact is payments-oncall@company.com.
+Our primary AWS region is ap-southeast-2. Findings in us-east-1 are lower priority unless severity is CRITICAL.
+We do not use RDS in production — any RDS finding in a production account is a misconfiguration.
 ```
 
-Or upload a CSV:
+(placeholder screenshot7-3)
 
-```bash
-plerion context import --file team-ownership.csv
+Once saved, test it:
+
+```
+Which teams have open critical findings right now?
 ```
 
-Once context is set, Pleri can say "this finding is owned by the payments team" rather than just listing the resource ARN.
+Before memory, Pleri returns ARNs. After, it returns team names, owners, and contact details.
 
 ---
 
-## 3. Test contextual answers
+## 3. Tasks
 
-Without context:
-```
-Which EC2 instances have critical findings?
-```
-> Returns a list of ARNs.
+Tasks let you schedule Pleri to run a query on a recurring basis — a weekly digest, a daily check on new criticals, or a report before a board meeting.
 
-With context:
-```
-Which EC2 instances have critical findings?
-```
-> Returns the same list, but now includes the owning team, Slack channel, and on-call contact for each instance.
+In the Pleri console, go to **Tasks**.
 
----
+(placeholder screenshot7-4)
 
-## 4. Create a custom compliance control
+### Create a recurring task
 
-```yaml
-# controls/data-residency-ap.yaml
-name: All storage must be in ap-southeast-2
-framework: internal-data-residency
-control_id: DR-01
-resource_types:
-  - aws_s3_bucket
-  - aws_rds_cluster
-  - aws_dynamodb_table
-condition:
-  region: ap-southeast-2
-```
+Click **New Task** and fill in what you want Pleri to do and when:
 
-```bash
-plerion controls create --file controls/data-residency-ap.yaml
-plerion compliance check --framework internal-data-residency
-```
+- **Name:** Weekly critical findings digest
+- **Prompt:** Summarise all new critical findings from the past 7 days. Group by team owner. List the top 3 risks to fix this week.
+- **Schedule:** Every Monday at 8:00 AM
+
+Pleri runs the query on schedule and delivers the result to your configured channel (Slack or email).
+
+### Run a task on demand
+
+Any task can also be triggered immediately from the Tasks list — useful for testing before you schedule it, or for one-off reports.
 
 ---
 
 ## Verify
 
-- [ ] Custom policy runs and produces findings
-- [ ] At least one resource has an owner assigned
-- [ ] Pleri references team ownership in its answers
-- [ ] A custom compliance control is passing or failing as expected
+- [ ] At least one skill is installed and Pleri can answer a question using it
+- [ ] Company memory is set and Pleri references team context in its answers
+- [ ] A scheduled task is created and has run at least once
 
 ---
 
