@@ -25,7 +25,7 @@ Plerion maps every detection to the compliance frameworks your organisation care
 
 Open **Compliance** in the Plerion console.
 
-(placeholder screenshot5-1)
+![Compliance dashboard](/img/00-setup/screenshot5-1.png)
 
 Every detection Plerion runs is mapped to controls across every framework it supports. This means as your environment changes — new accounts onboarded, findings remediated, new resources created — your compliance posture updates automatically. You don't run a check once before an audit; you have a live view at all times.
 
