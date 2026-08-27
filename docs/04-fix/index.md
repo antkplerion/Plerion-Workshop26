@@ -7,90 +7,92 @@ slug: /04-fix
 
 **Time:** 25 min | **Paths:** Security Engineer, Platform Engineer
 
-Remediate findings three ways: through the Plerion console, via Pleri AI, and by patching the Bad Cloud Terraform.
+Remediate findings two ways: a script-based fix that Pleri runs directly in your cloud, or an auto-fix PR raised to your code repo for human review and approval.
 
 ---
 
 ## What you'll do
 
-1. Fix a finding from the console
-2. Let Pleri generate a remediation and create a ticket
-3. Apply a Terraform fix to Bad Cloud and verify the finding closes
+1. Pick a finding to fix
+2. Fix it with a Pleri-generated cloud script
+3. Fix it via an auto-fix PR to your code repo
+4. Confirm the finding closes
 
 ---
 
-## 1. Fix from the console
+## 1. Pick a finding
 
-Open **Findings**, select the `S3 bucket publicly accessible` finding on `bad-cloud-public-bucket`.
+Open **Findings** in the Plerion console and pick any critical or high finding to work through. Use the filters to narrow by service or resource type.
 
-Click **Remediate** and follow the guided steps. Plerion shows you exactly which setting to change.
+(placeholder screenshot4-1)
+
+From the CLI, list your top failures to choose from:
 
 ```bash
-plerion findings get --id <FINDING_ID>
-plerion findings remediate --id <FINDING_ID>
+plerion findings list --severity CRITICAL,HIGH --status FAILED --sort-by severityLevel --sort-order desc
 ```
 
 ---
 
-## 2. Pleri-assisted remediation
+## 2. Fix it — script-based cloud fix
 
-### Two Ways
+For findings where the change can be applied directly (a misconfigured setting, an open port, a missing encryption flag), Pleri can generate and walk you through the exact script to run in your cloud environment.
 
-**Console:** Open the finding, click **Ask Pleri**, and request a fix.
+Open the finding in the console and click **Ask Pleri**, or ask directly via Pleri MCP:
 
-**Pleri:**
 ```
-The finding F-<ID> on bad-cloud-public-bucket is critical. Give me the exact Terraform change to fix it and create a Jira ticket for our team.
+This finding on <resource> is critical. Give me the exact script to fix it in AWS.
 ```
 
 Pleri will:
-- Explain the root cause
-- Produce the Terraform diff
-- Open a Jira ticket with the fix attached
+- Explain the root cause in plain English
+- Produce the exact CLI or API call to fix the configuration
+- Tell you what to verify afterwards
+
+(placeholder screenshot4-2)
+
+This is the fastest path for cloud-native misconfigurations — no code review required, the change goes straight to the resource.
 
 ---
 
-## 3. Fix in Terraform
+## 3. Fix it — auto-fix PR
 
-Apply the fix to Bad Cloud:
+For infrastructure defined in code — Terraform, CloudFormation, CDK — Pleri raises a pull request to your connected code repo with the fix already written. No one touches the cloud directly; the change goes through your normal review and merge process.
 
-```hcl
-# bad-cloud/s3.tf
-resource "aws_s3_bucket_public_access_block" "bad_cloud" {
-  bucket = aws_s3_bucket.bad_cloud_public.id
+To trigger an auto-fix PR, open the finding and click **Raise Auto-fix PR**.
 
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
-}
-```
+Pleri will:
+- Identify the IaC file and block responsible for the misconfiguration
+- Write the corrected code
+- Open a PR in your connected GitHub (or GitLab) repo with a description of the finding and the change
 
-```bash
-terraform apply -auto-approve
-```
+(placeholder screenshot4-3)
+
+Your team reviews and approves the PR as normal. Once merged, the next Plerion scan will pick up the change and close the finding.
+
+This approach keeps your cloud infrastructure in sync with your code — no drift, full audit trail.
 
 ---
 
-## 4. Verify the finding closes
+## 4. Confirm the finding closes
 
-After the next scan (or trigger one manually):
+After applying the fix — either directly or via merged PR — Plerion will detect the change on the next scan and move the finding to `PASSED`.
+
+Check it from the CLI:
 
 ```bash
-plerion scans trigger --account-id <YOUR_ACCOUNT_ID>
-plerion findings get --id <FINDING_ID>
+plerion findings list --ids <FINDING_ID> --output json
 ```
 
-The status should move to `RESOLVED`.
+Look for `"status": "PASSED"` in the output.
 
 ---
 
 ## Verify
 
-- [ ] At least one finding is now `RESOLVED`
-- [ ] You've used Pleri to generate a remediation
-- [ ] The Terraform change is applied and confirmed
-- [ ] A Jira ticket (or similar) exists for the fix
+- [ ] You've used Pleri to generate a script-based fix
+- [ ] You've triggered or reviewed an auto-fix PR in your code repo
+- [ ] At least one finding has moved to `PASSED`
 
 ---
 
