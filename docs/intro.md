@@ -13,7 +13,7 @@ This workshop takes you from a fresh Plerion account to running cloud security e
 By the end of the workshop you'll have:
 
 - A connected AWS account with real findings surfaced by Plerion
-- Hands-on experience remediating issues via the console, Pleri AI, and Terraform
+- Hands-on experience remediating issues via the console, User Interface and Pleri AI
 - Compliance evidence mapped to CIS, PCI-DSS, SOC 2, and ISO 27001
 - A working Pleri MCP integration in your editor or Claude desktop
 - Automated security workflows driven by the Plerion API
@@ -28,13 +28,8 @@ By the end of the workshop you'll have:
 
 ## Prerequisites
 
-- An AWS account you can onboard (or access to the shared Bad Cloud account)
-- A Plerion tenant — [sign up at plerion.com](https://plerion.com) if you don't have one
-- Node 18+, AWS CLI, Terraform 1.x, and the Plerion CLI installed (Module 00 covers this)
-
-## The Bad Cloud
-
-Every hands-on exercise targets **Bad Cloud** — a deliberately misconfigured Terraform environment that ships with public S3 buckets, over-permissive IAM roles, unencrypted RDS instances, and more. You'll deploy it in Module 00 and use it throughout.
+- An AWS account you can onboard
+- A Plerion tenant — [sign up at plerion.com](https://www.plerion.com/sign-up) if you don't have one
 
 ---
 

@@ -9,6 +9,8 @@ slug: /01-connect-pleri
 
 Connect Pleri AI to Claude Code, your IDE, and any MCP-compatible tool so you can query your cloud security posture from wherever you work.
 
+Public Documentation for setup here: https://docs.pleri.ai/tools/mcp 
+
 ---
 
 ## What you'll do
@@ -78,21 +80,10 @@ Claude will call the Pleri MCP tools and return live data from your Plerion tena
 
 ---
 
-## 4. Cursor integration (optional)
-
-```bash
-pleri mcp install --client cursor
-```
-
-The same API key works. After restart, Cursor's AI assistant can answer questions about your cloud posture inline while you write IaC.
-
----
-
 ## Verify
 
 - [ ] Pleri MCP is listed in Claude Code's tool panel
 - [ ] A natural-language query returns live findings from your account
-- [ ] No hardcoded API key in config files (use env var or secrets manager)
 
 ---
 
