@@ -24,7 +24,7 @@ Use risk scores, attack paths, and blast radius to focus remediation effort on w
 
 Open **Risk** in the Plerion console.
 
-(placeholder screenshot3-1)
+![Risk dashboard](/img/00-setup/screenshot3-1.png)
 
 The dashboard surfaces two things immediately:
 
@@ -62,7 +62,7 @@ The graph is what turns a list of findings into a risk picture.
 
 Attack paths are where the graph engine becomes most visible. An attack path strings together a sequence of issues — individually not alarming, but together forming a route from an exposed entry point to a high-value target.
 
-(placeholder screenshot3-2)
+![Attack path](/img/00-setup/screenshot3-2.png)
 
 A typical toxic combination might look like:
 
