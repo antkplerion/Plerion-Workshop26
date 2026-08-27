@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Plerion Workshop 2026',
   tagline: 'From "we just bought Plerion" to running cloud security end to end.',
-  favicon: 'img/favicon.png',
+  favicon: 'img/plerionlogo.png',
 
   url: 'https://antkplerion.github.io',
   baseUrl: '/Plerion-Workshop26/',

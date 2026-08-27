@@ -93,7 +93,7 @@ export default function Home(): React.JSX.Element {
           <img
             src="/Plerion-Workshop26/img/pleri.png"
             alt="Plerion"
-            style={{ height: 64, marginBottom: '1.5rem' }}
+            style={{ height: 192, marginBottom: '1.5rem' }}
           />
           <h1 className="hero__title">Plerion Workshop 2026</h1>
           <p className="hero__subtitle">
