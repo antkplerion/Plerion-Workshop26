@@ -22,9 +22,9 @@ By the end of the workshop you'll have:
 
 | Role | Modules |
 |------|---------|
-| Security Engineer | 00, 01, 02, 03, 04, 08 |
-| Platform / DevOps Engineer | 00, 01, 05, 06, 07, 08 |
-| Full workshop | All nine modules |
+| Security Engineer | 00, 01, 02, 03, 04, 05, 07 |
+| Platform / DevOps Engineer | 00, 01, 02, 05, 06, 07 |
+| Full workshop | All eight modules |
 
 ## Prerequisites
 

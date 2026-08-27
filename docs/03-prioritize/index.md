@@ -97,7 +97,7 @@ Give me the top 5 findings I should fix this week, ranked by risk and ease of re
 
 Pleri combines risk score, exploitability, and fix complexity to give you an ordered list with rationale — ready to paste into a ticket.
 
-**As a recurring Task** — if you want this automatically every week, set it up in Pleri Tasks (covered in Module 07):
+**As a recurring Task** — if you want this automatically every week, set it up in Pleri Tasks (covered in Module 06):
 
 - **Prompt:** Give me the top 10 risks to address this week, ranked by score. For each, include the resource, the finding, the suggested fix, and the owning team.
 - **Schedule:** Every Monday at 8:00 AM

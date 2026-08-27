@@ -8,7 +8,7 @@ const modules = [
     title: 'Setup',
     time: '15 min',
     path: '/00-setup',
-    desc: 'Configure your environment, connect your AWS account, and meet the Bad Cloud.',
+    desc: 'Configure your environment, connect your AWS account, and confirm your first findings.',
     paths: ['security', 'platform'],
   },
   {
@@ -40,7 +40,7 @@ const modules = [
     title: 'Fix',
     time: '25 min',
     path: '/04-fix',
-    desc: 'Remediate findings via the console, Pleri AI, and IaC — with verification steps.',
+    desc: 'Remediate findings via a Pleri-generated cloud script or an auto-fix PR to your code repo.',
     paths: ['security', 'platform'],
   },
   {
@@ -48,30 +48,22 @@ const modules = [
     title: 'Prove',
     time: '20 min',
     path: '/05-prove',
-    desc: 'Generate compliance reports, map controls to frameworks, and build audit evidence.',
+    desc: 'Map findings to compliance frameworks, generate audit reports, and connect your GRC tool.',
     paths: ['security'],
   },
   {
     number: '06',
-    title: 'Work Headless',
+    title: 'Teach Pleri',
     time: '20 min',
-    path: '/06-work-headless',
-    desc: 'Drive Plerion from the API and CLI — automate queries, exports, and ticket creation.',
+    path: '/06-teach-pleri',
+    desc: 'Extend Pleri with Skills, Memory, and Tasks so it understands your organisation.',
     paths: ['platform'],
   },
   {
     number: '07',
-    title: 'Teach Pleri',
-    time: '20 min',
-    path: '/07-teach-pleri',
-    desc: 'Add custom findings, policies, and context so Pleri learns your organisation.',
-    paths: ['platform'],
-  },
-  {
-    number: '08',
     title: 'Operate',
     time: '20 min',
-    path: '/08-operate',
+    path: '/07-operate',
     desc: 'Set up alerting, integrations, and runbooks to make security part of daily operations.',
     paths: ['security', 'platform'],
   },
@@ -126,14 +118,14 @@ export default function Home(): React.JSX.Element {
         <div style={{ marginBottom: '2.5rem' }}>
           <h2 style={{ marginBottom: '0.5rem' }}>Learning Paths</h2>
           <p style={{ opacity: 0.7 }}>
-            Pick the modules that match your role, or run all nine for the full experience.
+            Pick the modules that match your role, or run all eight for the full experience.
           </p>
           <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1rem' }}>
             <span className="path-badge path-badge--security">
-              Security Engineer — 00 01 02 03 04 05 08
+              Security Engineer — 00 01 02 03 04 05 07
             </span>
             <span className="path-badge path-badge--platform">
-              Platform Engineer — 00 01 02 06 07 08
+              Platform Engineer — 00 01 02 05 06 07
             </span>
             <span className="path-badge path-badge--both">Full Workshop — all modules</span>
           </div>

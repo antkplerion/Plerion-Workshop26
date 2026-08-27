@@ -128,7 +128,7 @@ plerion compliance-frameworks list --custom true
 
 ## 5. GRC integrations
 
-Plerion is not a GRC tool — it's the technical control layer that feeds your GRC platform with evidence. If your team uses Vanta or Drata, connect them via Pleri Skills (covered in Module 07) and Plerion will push workload vulnerability data directly into your GRC workspace.
+Plerion is not a GRC tool — it's the technical control layer that feeds your GRC platform with evidence. If your team uses Vanta or Drata, connect them via Pleri Skills (covered in Module 06) and Plerion will push workload vulnerability data directly into your GRC workspace.
 
 This means your GRC tool stays current with real cloud findings rather than relying on manual evidence uploads or point-in-time assessments. Auditors see live data; your team doesn't do double entry.
 
@@ -143,4 +143,4 @@ This means your GRC tool stays current with real cloud findings rather than rely
 
 ---
 
-Next: [Module 06 — Work Headless](/06-work-headless)
+Next: [Module 06 — Teach Pleri](/06-teach-pleri)
