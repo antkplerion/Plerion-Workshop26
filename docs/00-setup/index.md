@@ -77,7 +77,7 @@ Go to Settings > Integrations > Scroll to your code repo (e.g. Github)
 
 Click on the "+" sign on github, follow the OAuth flow to adding the integration. You may specify repos and specify permissibility with read-only or write as well. Pleri will use write-based permissions to make comments on new PRs (this can be toggled on/off) as well as raise auto-fix PRs for human review and approval to patch vulnerabilities. 
 
-(placeholder screenshot6)
+![GitHub integration](/img/00-setup/screenshot6.png)
 
 ---
 
