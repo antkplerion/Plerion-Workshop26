@@ -24,7 +24,7 @@ Explore your cloud asset inventory and understand what Plerion has discovered ab
 
 In the Plerion console, open **Assets**. You'll see every resource across your connected accounts — EC2 instances, S3 buckets, IAM roles, RDS clusters, Lambda functions, and more.
 
-(placeholder screenshot2-1)
+![Asset inventory](/img/00-setup/screenshot2-1.png)
 
 Use the CLI to list assets by service or region:
 
@@ -52,7 +52,7 @@ plerion assets list --is-vulnerable --has-exploit
 
 In the console, use the filter bar to combine conditions — service, region, exposure, and more.
 
-(placeholder screenshot2-2)
+![Asset filters](/img/00-setup/screenshot2-2.png)
 
 ---
 
