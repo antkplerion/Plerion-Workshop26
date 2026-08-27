@@ -28,7 +28,7 @@ In the Pleri console, go to **Skills**. You'll see:
 - **Installed** — skills already active in your workspace
 - **Templates** — pre-built skills you can install in one click
 
-(placeholder screenshot7-1)
+![Skills page](/img/00-setup/screenshot7-1.png)
 
 ### Install a template skill
 
@@ -49,7 +49,7 @@ If your tooling isn't in the template library, add it as a custom MCP server:
 3. Paste your server URL and any required credentials
 4. Click **Validate** — Pleri will test the connection before saving
 
-(placeholder screenshot7-2)
+![Add custom MCP server](/img/00-setup/screenshot7-2.png)
 
 ---
 
@@ -62,11 +62,11 @@ There are two levels:
 | Level | Scope | What to put here |
 |-------|-------|-----------------|
 | **User memory** | Your account only | Your role, preferred output format, recurring questions |
-| **Company memory** | All users in your tenant | Team ownership, environment definitions, risk tolerance, contacts |
+| **Memory** | All users in your tenant | Team ownership, environment definitions, risk tolerance, contacts |
 
-### Set company memory
+### Set memory
 
-In the Pleri console, go to **Settings > Company Memory**.
+In the Pleri console, go to **Settings > Memory**.
 
 Write plain English — Pleri reads this as context before every response:
 
@@ -77,7 +77,7 @@ Our primary AWS region is ap-southeast-2. Findings in us-east-1 are lower priori
 We do not use RDS in production — any RDS finding in a production account is a misconfiguration.
 ```
 
-(placeholder screenshot7-3)
+![Memory settings](/img/00-setup/screenshot7-3.png)
 
 Once saved, test it:
 
@@ -95,7 +95,7 @@ Tasks let you schedule Pleri to run a query on a recurring basis — a weekly di
 
 In the Pleri console, go to **Tasks**.
 
-(placeholder screenshot7-4)
+![Tasks list](/img/00-setup/screenshot7-4.png)
 
 ### Create a recurring task
 
