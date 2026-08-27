@@ -14,72 +14,91 @@ Explore your cloud asset inventory and understand what Plerion has discovered ab
 ## What you'll do
 
 1. Browse the asset inventory
-2. Filter assets by service, region, and tag
-3. View a resource's full configuration and relationships
+2. Filter assets by service, region, and exposure
+3. Inspect a resource's configuration and relationships
 4. Ask Pleri to summarise what it sees
 
 ---
 
 ## 1. Browse the asset inventory
 
-In the Plerion console, open **Inventory**. You'll see every resource across your connected accounts — EC2 instances, S3 buckets, IAM roles, RDS clusters, Lambda functions, and more.
+In the Plerion console, open **Assets**. You'll see every resource across your connected accounts — EC2 instances, S3 buckets, IAM roles, RDS clusters, Lambda functions, and more.
 
-Use the CLI:
+(placeholder screenshot2-1)
+
+Use the CLI to list assets by service or region:
 
 ```bash
-plerion inventory list --service s3
-plerion inventory list --service ec2 --region ap-southeast-2
+plerion assets list --service s3
+plerion assets list --service ec2 --region ap-southeast-2
 ```
 
 ---
 
-## 2. Filter and search
+## 2. Filter assets
 
-Narrow the view by tag, VPC, or configuration property:
+Narrow the view by exposure, vulnerability status, or severity:
 
 ```bash
-plerion inventory list --tag Environment=production
-plerion inventory search --query "publicly accessible RDS"
+# Publicly exposed assets
+plerion assets list --is-publicly-exposed
+
+# Assets with active critical findings
+plerion assets list --severity CRITICAL
+
+# Vulnerable assets with a known exploit
+plerion assets list --is-vulnerable --has-exploit
 ```
+
+In the console, use the filter bar to combine conditions — service, region, exposure, and more.
+
+(placeholder screenshot2-2)
 
 ---
 
 ## 3. Inspect a resource
 
+Click any asset in the console to open its detail view. This shows:
+
+- Full resource configuration
+- Active findings
+- IAM principals with access
+- Network relationships
+
+To fetch a specific asset from the CLI, copy its asset ID from the console (format: `prn:assets:...`) and run:
+
 ```bash
-plerion inventory get --arn arn:aws:s3:::bad-cloud-public-bucket
-```
-
-This returns the full resource configuration, attached policies, relationships, and any active findings.
-
-### Two Ways — Console or Pleri
-
-**Console:** Navigate to Inventory, click a resource, open the **Relationships** tab.
-
-**Pleri:** Ask Pleri directly:
-
-```
-Who can reach the bad-cloud-public-bucket S3 bucket, and what findings are attached to it?
+plerion assets get --asset-id <ASSET_ID>
 ```
 
 ---
 
-## 4. Understand relationships
+## 4. Ask Pleri
 
-Plerion builds a graph of your cloud. From any resource you can see:
+The console gives you data. Pleri gives you answers.
 
-- What IAM principals have access
-- What network paths lead to it
-- Which findings are active against it
+```
+Which S3 buckets in my account are publicly accessible and have active findings?
+```
+
+```
+Show me all EC2 instances in production that are internet-facing.
+```
+
+```
+What IAM roles have access to my most critical assets?
+```
+
+Pleri queries the asset graph and returns results in plain English, with links back to the console.
 
 ---
 
 ## Verify
 
-- [ ] You can see Bad Cloud resources in the Inventory view
-- [ ] You can filter by service and region
+- [ ] You can see your assets in the Plerion console
+- [ ] You've filtered by service and region from the CLI
 - [ ] You've opened a resource and seen its relationships
-- [ ] You've asked Pleri at least one inventory question
+- [ ] You've asked Pleri at least one asset question
 
 ---
 
