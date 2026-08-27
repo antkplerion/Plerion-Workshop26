@@ -80,47 +80,43 @@ export default function Home(): React.JSX.Element {
       title="Plerion Workshop 2026"
       description="From 'we just bought Plerion' to running cloud security end to end."
     >
-      <div className="hero">
-        <div className="container" style={{ textAlign: 'center' }}>
+      {/* Top accent bar */}
+      <div className="top-accent-bar" />
+
+      {/* Hero */}
+      <div className="hero-v2">
+        <div className="hero-v2__grid-overlay" />
+        <div className="hero-v2__glow" />
+        <div className="container hero-v2__inner">
           <img
             src="/Plerion-Workshop26/img/pleri.png"
             alt="Plerion"
-            style={{ height: 192, marginBottom: '1.5rem' }}
+            className="hero-v2__logo"
           />
-          <h1 className="hero__title">Plerion Workshop 2026</h1>
-          <p className="hero__subtitle">
+          <h1 className="hero-v2__title">Plerion Workshop 2026</h1>
+          <p className="hero-v2__subtitle">
             From <em>"we just bought Plerion"</em> to running cloud security end to end.
           </p>
-          <div
-            style={{
-              marginTop: '2rem',
-              display: 'flex',
-              gap: '1rem',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-            }}
-          >
-            <Link className="button button--primary button--lg" to="/00-setup">
+          <div className="hero-v2__accent-line" />
+          <div className="hero-v2__ctas">
+            <Link className="btn-primary-v2" to="/00-setup">
               Start Setup
             </Link>
-            <Link
-              className="button button--outline button--lg"
-              to="/intro"
-              style={{ color: '#F2F7F8', borderColor: '#261432' }}
-            >
+            <Link className="btn-secondary-v2" to="/intro">
               Read Intro
             </Link>
           </div>
         </div>
       </div>
 
-      <div className="container" style={{ padding: '4rem 0' }}>
-        <div style={{ marginBottom: '2.5rem' }}>
-          <h2 style={{ marginBottom: '0.5rem' }}>Learning Paths</h2>
-          <p style={{ opacity: 0.7 }}>
-            Pick the modules that match your role, or run all eight for the full experience.
-          </p>
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1rem' }}>
+      {/* Modules section */}
+      <div className="container modules-section">
+
+        {/* Learning paths */}
+        <div className="paths-panel">
+          <h2 className="paths-panel__heading">Learning Paths</h2>
+          <p className="paths-panel__sub">Pick the modules that match your role, or run all eight for the full experience.</p>
+          <div className="paths-panel__badges">
             <span className="path-badge path-badge--security">
               Security Engineer — 00 01 02 03 04 05 07
             </span>
@@ -131,29 +127,32 @@ export default function Home(): React.JSX.Element {
           </div>
         </div>
 
-        <h2>Modules</h2>
+        <h2 className="modules-heading">Modules</h2>
         <div className="module-grid">
           {modules.map((m) => (
-            <Link key={m.number} className="module-card" to={m.path}>
-              <div className="module-card__number">Module {m.number}</div>
-              <div className="module-card__title">{m.title}</div>
-              <div className="module-card__time">{m.time}</div>
-              <div className="module-card__desc">{m.desc}</div>
-              <div style={{ marginTop: '0.75rem' }}>
-                {m.paths.map((p) => (
-                  <span
-                    key={p}
-                    className={`path-badge ${pathMeta[p].cls}`}
-                    style={{ fontSize: '0.65rem' }}
-                  >
-                    {pathMeta[p].label}
-                  </span>
-                ))}
+            <Link key={m.number} className="module-card-v2" to={m.path}>
+              <div className="module-card-v2__left-accent" />
+              <div className="module-card-v2__content">
+                <div className="module-card-v2__header">
+                  <span className="module-card-v2__number">· Module {m.number}</span>
+                  <span className="module-card-v2__time">{m.time}</span>
+                </div>
+                <div className="module-card-v2__title">{m.title}</div>
+                <div className="module-card-v2__desc">{m.desc}</div>
+                <div className="module-card-v2__footer">
+                  <div className="module-card-v2__badges">
+                    {m.paths.map((p) => (
+                      <span key={p} className={`path-badge ${pathMeta[p].cls}`} style={{ fontSize: '0.65rem' }}>
+                        {pathMeta[p].label}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="module-card-v2__arrow">→</span>
+                </div>
               </div>
             </Link>
           ))}
         </div>
-
       </div>
     </Layout>
   );
