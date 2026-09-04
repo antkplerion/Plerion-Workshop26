@@ -58,6 +58,12 @@ const sidebars: SidebarsConfig = {
           link: { type: 'doc', id: '05-prove/index' },
           items: [],
         },
+        {
+          type: 'category',
+          label: 'F5. Vulnerability Management',
+          link: { type: 'doc', id: 'f5-vuln-mgmt/index' },
+          items: [],
+        },
       ],
     },
     {
@@ -74,7 +80,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'A2. Advanced Module 2',
+          label: 'A2. Code Security in CI/CD',
           link: { type: 'doc', id: 'advanced-02/index' },
           items: [],
         },
