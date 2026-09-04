@@ -3,7 +3,7 @@ title: Operate
 slug: /07-operate
 ---
 
-# Module 07 — Operate
+# W3 — Operate
 
 **Time:** 20 min | **Paths:** Security Engineer, Platform Engineer
 

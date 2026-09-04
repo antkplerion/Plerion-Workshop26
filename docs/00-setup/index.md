@@ -3,7 +3,7 @@ title: Setup
 slug: /00-setup
 ---
 
-# Module 00 — Setup
+# W1 — Setup
 
 **Time:** 15-30 min | **Paths:** Security Engineer, Platform Engineer
 

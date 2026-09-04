@@ -3,7 +3,7 @@ title: Connect Pleri
 slug: /01-connect-pleri
 ---
 
-# Module 01 — Connect Pleri
+# W2 — Connect Pleri
 
 **Time:** 15 min | **Paths:** Platform Engineer
 

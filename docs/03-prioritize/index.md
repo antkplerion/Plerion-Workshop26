@@ -3,7 +3,7 @@ title: Prioritize
 slug: /03-prioritize
 ---
 
-# Module 03 — Prioritize
+# F2 — Prioritize
 
 **Time:** 25 min | **Paths:** Security Engineer
 

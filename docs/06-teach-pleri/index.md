@@ -3,7 +3,7 @@ title: Teach Pleri
 slug: /06-teach-pleri
 ---
 
-# Module 06 — Teach Pleri
+# A1 — Teach Pleri
 
 **Time:** 20 min | **Paths:** Platform Engineer
 
