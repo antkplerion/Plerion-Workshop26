@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 /* Brand tokens */
 :root {
@@ -18,8 +19,8 @@
   --ifm-color-primary-lighter: #ff722e;
   --ifm-color-primary-lightest: #ff8f57;
 
-  --ifm-font-family-base: 'Archivo', system-ui, -apple-system, sans-serif;
-  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', monospace;
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, 'Fira Code', monospace;
   --ifm-code-font-size: 90%;
   --docusaurus-highlighted-code-line-bg: rgba(255, 84, 0, 0.1);
   --ifm-navbar-height: 64px;
@@ -38,13 +39,16 @@
   --docusaurus-highlighted-code-line-bg: rgba(255, 115, 46, 0.15);
 }
 
-/* Light mode */
+/* Light mode — forced to dark palette (toggle is disabled) */
 [data-theme='light'] {
-  --ifm-background-color: #F2F7F8;
-  --ifm-background-surface-color: #ffffff;
+  --ifm-background-color: #0A020F;
+  --ifm-background-surface-color: #170d1f;
   --ifm-navbar-background-color: #0A020F;
   --ifm-navbar-link-color: #F2F7F8;
   --ifm-navbar-link-hover-color: #FF732E;
+  --ifm-toc-border-color: #261432;
+  --ifm-color-emphasis-300: #3d2255;
+  --ifm-font-color-base: #F2F7F8;
 }
 
 /* Navbar always dark */
@@ -215,12 +219,12 @@
 }
 
 .hero-v2__title {
-  font-size: 4rem;
-  font-weight: 900;
+  font-size: 3.5rem;
+  font-weight: 800;
   color: #F2F7F8;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   margin-bottom: 1rem;
-  line-height: 1.1;
+  line-height: 1.11;
 }
 
 .hero-v2__subtitle {
@@ -453,10 +457,10 @@
 /* ── Headings ─────────────────────────────────────────────── */
 
 .markdown h1 {
-  font-size: 2.6rem;
-  font-weight: 900;
+  font-size: 2.25rem;
+  font-weight: 800;
   letter-spacing: -0.025em;
-  line-height: 1.15;
+  line-height: 1.11;
   color: #F2F7F8;
   margin-bottom: 0.75rem;
   padding-bottom: 1.25rem;
@@ -476,30 +480,34 @@
 }
 
 .markdown h2 {
-  font-size: 1.45rem;
-  font-weight: 800;
-  letter-spacing: -0.015em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.33;
   color: #F2F7F8;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid #261432;
 }
 
 .markdown h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.6;
   color: #FF732E;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.01em;
+  margin-top: 1.6rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
 }
 
 /* ── Body text ────────────────────────────────────────────── */
 
 .markdown p {
+  font-size: 1rem;
   line-height: 1.75;
   color: rgba(242, 247, 248, 0.85);
+  font-weight: 400;
 }
 
 /* ── Horizontal rules (section dividers) ─────────────────── */
@@ -528,9 +536,6 @@
   border-collapse: collapse;
   width: 100%;
   margin: 1.75rem 0;
-  border: 1px solid #261432;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 .markdown thead tr {
@@ -550,13 +555,13 @@
 
 .markdown td {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid #1a0d26;
+  border-bottom: 1px solid #261432;
   color: rgba(242, 247, 248, 0.8);
   font-size: 0.9rem;
 }
 
 .markdown tbody tr:last-child td {
-  border-bottom: none;
+  border-bottom: 1px solid #261432;
 }
 
 .markdown tbody tr:hover td {
@@ -724,6 +729,46 @@
 
 .theme-doc-markdown {
   padding-bottom: 2rem;
+}
+
+/* ── Force black background everywhere ────────────────────── */
+
+html,
+body {
+  background-color: #0A020F !important;
+}
+
+/* Main layout wrappers */
+.main-wrapper,
+.docPage_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-styles-module,
+[class*='docPage_'],
+[class*='docMainContainer_'],
+[class*='docItemContainer_'],
+[class*='docSidebarContainer_'],
+[class*='sidebarViewport_'],
+[class*='sidebar_'] {
+  background-color: #0A020F !important;
+}
+
+/* Sidebar */
+.theme-doc-sidebar-container,
+.theme-doc-sidebar-menu,
+nav.menu {
+  background-color: #0A020F !important;
+}
+
+/* Doc content area */
+article,
+.container,
+main[class*='docMainContainer'],
+div[class*='docItemWrapper'] {
+  background-color: transparent !important;
+}
+
+/* Admonitions default grey */
+.alert {
+  background-color: #0d0617 !important;
+  border: 1px solid #261432;
 }
 
 /* ── Strong / bold inline ─────────────────────────────────── */

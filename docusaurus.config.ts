@@ -43,7 +43,7 @@ const config: Config = {
     image: 'img/pleri.png',
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: false,
+      disableSwitch: true,
       respectPrefersColorScheme: false,
     },
     navbar: {
